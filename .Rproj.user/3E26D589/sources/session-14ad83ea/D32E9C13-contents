@@ -2,7 +2,7 @@
 title: "<p style=\"color:black,text-align:center\">Multivariate Analysis</p>"
 author:    
     - name: <font color=#ff6600><b>Biometrics Unit</b></font>    
-affiliation: <font color=#ff6600><b>International Institute of Tropical Agriculture (IITA)</b></font>
+      affiliation: <font color=#ff6600><b>International Institute of Tropical Agriculture (IITA)</b></font>
 ---
 
 # [**Introduction**]{style="color: #234F1E;"}
@@ -608,9 +608,9 @@ We have two years of testing, 1970 and 1971. Could be interesting to identify th
 #|tidy=FALSE
 #|size='tiny'
 library(ggbiplot) 
-ggbiplot(dat.Brookstead.pca, labels=labels.gen, groups=labels.year)+ #<<   
-  labs(title = "Yield and other traits of soybeans in Australia",        subtitle = "Period 1970-1971",        caption = "Data: agridat::australia.soybean"   ) +
-  theme_classic()
+#ggbiplot(dat.Brookstead.pca, labels=labels.gen, groups=labels.year)+ #<<   
+  #labs(title = "Yield and other traits of soybeans in Australia",        subtitle = "Period 1970-1971",        caption = "Data: agridat::australia.soybean"   ) +
+  #theme_classic()
 ```
 
 ![](images/pca-biplot-3.png){width="65%"}
