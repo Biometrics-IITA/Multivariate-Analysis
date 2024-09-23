@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Biometrics Unit">
+
+<title>Multivariate -</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Multivariate</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span style="color: #234F1E;"><strong>Introduction</strong></span></a></li>
+  <li><a href="#clustering" id="toc-clustering" class="nav-link" data-scroll-target="#clustering"><span style="color: #234F1E;"><strong>Clustering</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#partitioningcentroid-based-clustering" id="toc-partitioningcentroid-based-clustering" class="nav-link" data-scroll-target="#partitioningcentroid-based-clustering"><span style="color: #002D62;">1. Partitioning/Centroid based clustering</span></a></li>
+  <li><a href="#hierarchicalagglomerative-clustering" id="toc-hierarchicalagglomerative-clustering" class="nav-link" data-scroll-target="#hierarchicalagglomerative-clustering"><span style="color: #002D62;">2. Hierarchical(Agglomerative) clustering</span></a></li>
+  <li><a href="#grid-based-clustering" id="toc-grid-based-clustering" class="nav-link" data-scroll-target="#grid-based-clustering"><span style="color: #002D62;">3. Grid-Based clustering</span></a></li>
+  <li><a href="#density-based-clustering" id="toc-density-based-clustering" class="nav-link" data-scroll-target="#density-based-clustering"><span style="color: #002D62;">4. Density-Based clustering</span></a></li>
+  <li><a href="#model-based-clustering" id="toc-model-based-clustering" class="nav-link" data-scroll-target="#model-based-clustering"><span style="color: #002D62;">5. Model-Based clustering</span></a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span style="color: #002D62;">Example</span></a></li>
+  </ul></li>
+  <li><a href="#k-means-clustering" id="toc-k-means-clustering" class="nav-link" data-scroll-target="#k-means-clustering"><span style="color: #234F1E;"><strong>K-Means Clustering</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#k-means-clustering-steps" id="toc-k-means-clustering-steps" class="nav-link" data-scroll-target="#k-means-clustering-steps"><span style="color: #002D62;">K-Means Clustering Steps</span></a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span style="color: #002D62;">Example</span></a></li>
+  <li><a href="#k-means-clustering-visualization" id="toc-k-means-clustering-visualization" class="nav-link" data-scroll-target="#k-means-clustering-visualization"><span style="color: #002D62;">K-Means Clustering Visualization</span></a></li>
+  </ul></li>
+  <li><a href="#principal-component-analysis-pca" id="toc-principal-component-analysis-pca" class="nav-link" data-scroll-target="#principal-component-analysis-pca"><span style="color: #234F1E;"><strong>Principal Component Analysis (PCA)</strong></span></a>
+  <ul class="collapse">
+  <li><a href="#heres-how-pca-typically-works" id="toc-heres-how-pca-typically-works" class="nav-link" data-scroll-target="#heres-how-pca-typically-works"><span style="color: #002D62;">Here’s how PCA typically works</span></a></li>
+  <li><a href="#application-of-pca" id="toc-application-of-pca" class="nav-link" data-scroll-target="#application-of-pca"><span style="color: #002D62;">Application of PCA</span></a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><span style="color: #002D62;">Example</span></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><p style="color:black,text-align:center"><br>
+Multivariate Analysis<br>
+</p></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p><font color="#ff6600"><b>Biometrics Unit</b></font> </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1><span style="color: #234F1E;"><strong>Introduction</strong></span></h1>
+<p>Data analysis is a vital part of every research work. To achieve this, there are three types of analysis that can be appliedto datasets, these includes:</p>
+<ol type="1">
+<li>Univariate analysis: This involves only <strong>one</strong> variable (methods includes mode, mean, median, etc.).</li>
+<li>Bivariate analysis: This involves <strong>two</strong> variables (method includes linear regression, correlation etc. )</li>
+<li>Multivariate analysis: This involves <strong>two or more</strong> variables ( Cluster analysis, Principal Components or Factor analysis, neural network Bayesian classifier, matrix plot etc.). In multivariate analysis we are concerned with sets of objects on each of which p variables (or variates) are measured, but usually with no prior differentiation of variables into causes and effects. We can look at any one variable in isolation but to get the whole picture the variables must be considered jointly.</li>
+</ol>
+<p>Multivariate analysis(MVA) refers to a broad set of statistical methods designed for examining relationships among multiple variables concurrently, typically beyond two. Its purpose is to uncover intricate patterns and correlations within a dataset, offering a richer and more refined comprehension of the underlying scenario compared to simpler analyses. Through simultaneous examination of multiple variables, MVA yields deeper insights and more precise predictions, thereby bolstering decision-making within data-driven industries.</p>
+<p>In fields like plant breeding, where understanding complex interconnections among data is crucial, this technique plays a foundation role. Variables such as days to flowering, days to maturity, 100_seed_weights and plant heights collectively influence the yield of crops. This necessitates the need for multivariate analysis.</p>
+<p>There are several methods of multivariate analysis, but in this study, we will be considering three major methods:</p>
+<ul>
+<li>Clustering</li>
+<li>K-means clustering, and</li>
+<li>Principal Component Analysis (PCA).</li>
+</ul>
+</section>
+<section id="clustering" class="level1">
+<h1><span style="color: #234F1E;"><strong>Clustering</strong></span></h1>
+<p>A cluster analysis groups observations or variables based on similarities between them. When organizing data into clusters, the objective is for variables within the same cluster to exhibit greater similarity to each other compared to variables in different clusters. This comparison is quantified through intracluster and intercluster distances. Intracluster distance assesses the proximity of data points within a single cluster, ideally aiming for a minimal value. Intercluster distance, on the other hand, measures the separation between data points belonging to distinct clusters, with the goal of maximizing this distance for effective clustering. Data clustering techniques are valuable tools for researchers working with large databases of multivariate data.</p>
+<p>Clustering analysis aims to uncover patterns within data and organize them into distinct groups based on those patterns. Hence, if two data points share similar traits, it indicates they follow the same pattern and thus should be grouped together. Through clustering analysis, we can explore which features tend to co-occur and understand the defining characteristics of each group.</p>
+<p>We classify or cluster:</p>
+<ol type="a">
+<li>For data description - to understand the data better than producing a distribution.</li>
+<li>For data reduction – i.e.&nbsp;reduce the size of data for, say, geographical reasons, etc.</li>
+<li>For typology/taxonomy - to look for some natural grouping.</li>
+</ol>
+<p><strong>The major type of clustering includes:</strong></p>
+<ol type="1">
+<li>Partitioning/Centroid based clustering</li>
+<li>Hierarchical clustering</li>
+<li>Grid-Based clustering</li>
+<li>Density-Based clustering</li>
+<li>Model-Based clustering</li>
+</ol>
+<section id="partitioningcentroid-based-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="partitioningcentroid-based-clustering"><span style="color: #002D62;">1. Partitioning/Centroid based clustering</span></h2>
+<p>Centroid-based clustering is a clustering approach that divides a dataset into comparable groups by assessing the distances between their centroids. Example, k-means clustering.</p>
+<p><img src="images/centroid-based.png" class="img-fluid" style="width:65.0%"></p>
+</section>
+<section id="hierarchicalagglomerative-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="hierarchicalagglomerative-clustering"><span style="color: #002D62;">2. Hierarchical(Agglomerative) clustering</span></h2>
+<p>This method identifies clusters by evaluating the proximity of data points to each other, operating on the premise that objects in closer proximity are more closely associated than those situated farther apart. To apply connectivity-based clustering, you must first select the relevant data points and quantify their similarities or differences using a distance metric. Next, a connectivity measure, like a graph or network, is created to depict the connections among the data points. Subsequently, the clustering algorithm utilizes this connectivity data to organize the data points into clusters that capture their inherent similarities. This process is often represented visually through a dendrogram, resembling a hierarchical tree structure.</p>
+<p>The Agglomerative clustering is the most common type of hierarchical clustering used to group objects in clusters based on their similarity. It’s also known as AGNES (Agglomerative Nesting). The algorithm starts by treating each object as a singleton cluster. Next, pairs of clusters are successively merged until all clusters have been merged into one big cluster containing all objects. The result is a tree-based representation of the objects, named dendrogram.</p>
+<p>A <strong>dendrogram</strong> shows the hierarchical relationship between the clusters</p>
+<p><img src="images/dendo.png" class="img-fluid" style="width:65.0%"></p>
+<p>There are many distance metrics and the choice depends on the type of data:</p>
+<ul>
+<li>If the data are continuous quantitative, we can use the Euclidean distance or that of Manhattan,</li>
+<li>If the data is binary (categorical), we can use the Jaccard distance</li>
+<li>Other distance measurements include Minkowski, Canberra, etc.</li>
+</ul>
+<p>Where there is no theoretical justification for an alternative, the <strong>Euclidean distance</strong> should generally be preferred. After the distance metric, we then have to choose a linkage criteria. There are many options: single-linkage, complete-linkage, mean or average-linkage, Ward’s method, etc. Each of the methods will produce a different dendrogram. In practice, we will most often prefer the <strong>Ward method</strong>. Ward’s method seeks to minimize intra-class variability and to maximize inter-class variability to obtain the most homogeneous possible clusters</p>
+<p><strong>Important things to note when working with Hierarchical clustering:</strong></p>
+<ol type="1">
+<li><p><strong>Standardize the data:</strong> The variables to be used for clustering are of different units. Standardizing the data (mean zero, unit variance) will ensure that the data is at the same scale. We subtract each data from its mean and divide it by the standard deviation. We can use the <code>scale ()</code> function in R</p></li>
+<li><p><strong>Dealing with missing values:</strong> Several ways to deal with these values,</p>
+<ul>
+<li>delete them</li>
+<li>impute them with a mean, median, mode or use advanced regression techniques.</li>
+</ul></li>
+</ol>
+<p>The root of the dendrogram corresponds to the cluster with all the individuals together. This dendrogram represents a hierarchy of partitions. The “fusion” distance (<strong>height</strong>) is indicated on the <code>y-axis</code> of the dendrogram</p>
+</section>
+<section id="grid-based-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="grid-based-clustering"><span style="color: #002D62;">3. Grid-Based clustering</span></h2>
+<p>Grid-based clustering divides a high-dimensional dataset into cells, which are distinct sets of non-overlapping sub-regions. Every cell is given a unique identifier known as a cell ID, and all data points contained within a cell are regarded as belonging to the same cluster. This clustering technique proves efficient for analyzing expansive multidimensional datasets, as it diminishes the search time required for locating nearest neighbors, a frequent procedure in numerous clustering methodologies.</p>
+<p><img src="images/grid-based.png" class="img-fluid" style="width:65.0%"></p>
+</section>
+<section id="density-based-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="density-based-clustering"><span style="color: #002D62;">4. Density-Based clustering</span></h2>
+<p>Density-based clustering represents a robust unsupervised machine learning method that enables the identification of dense clusters within a dataset. In contrast to clustering algorithms like K-means and hierarchical clustering, density-based clustering can unveil clusters of varied shapes, sizes, and densities. This technique proves particularly advantageous when handling datasets containing noise or outliers, or when the precise number of clusters within the data is unknown.</p>
+<p><img src="images/density.png" class="img-fluid" style="width:65.0%"></p>
+</section>
+<section id="model-based-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="model-based-clustering"><span style="color: #002D62;">5. Model-Based clustering</span></h2>
+<p>Model-based clustering organizes data points into groups according to their probability distribution, leveraging statistical patterns to delineate clusters within the dataset. Unlike centroid-based clustering, it employs statistical patterns for cluster identification. However, model-based clustering is susceptible to overfitting, wherein clustering excessively relies on the dataset, leading to inaccurate predictions.</p>
+<p><img src="images/model.png" class="img-fluid" style="width:65.0%"></p>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example"><span style="color: #002D62;">Example</span></h2>
+<p>Let’s Consider the <code>steptoe.morex.pheno.csv</code> data from the <code>agridat</code> package, multi-environment trial of barley. The dataset contains 2432 observations on the following 10 variables:</p>
+<ul>
+<li><em>gen</em> (genotype) - a Character vector for the genes of the barley</li>
+<li><em>env</em> (environment)- a character vector of the environment</li>
+<li><em>amylase</em> (alpha amylase), 20 Deg Units - a numeric vector for the alpha amylase sample</li>
+<li><em>diapow</em> (diastatic power), degree units - a numeric vector for the diastatic power</li>
+<li><em>hddate</em> (heading date),julian days - a numeric vector for the heading date</li>
+<li><em>lodging</em>, percent- a numeric vector for the lodging</li>
+<li><em>malt</em> (malt extract), percent - numeric vector for the malt sample</li>
+<li><em>height</em> (plant height), centimeters - numeric vector for the height sample</li>
+<li><em>protein</em> (grain protein), percent - numeric vector for the protein sample</li>
+<li><em>yield</em> (grain yield), mt / ha - numeric vector for the plant yield</li>
+</ul>
+<p>Lets take a look at a sample of the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#|message =FALSE</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"steptoe.morex.pheno.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 2432 Columns: 10
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): gen, env
+dbl (8): amylase, diapow, hddate, lodging, malt, height, protein, yield
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2,432 × 10
+   gen     env   amylase diapow hddate lodging  malt height protein yield
+   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+ 1 Steptoe MN92     22.7     46   150.      NA  73.6   84.5    10.5  5.53
+ 2 Steptoe MTi92    30.1     72   178       10  76.5   NA      11.2  8.64
+ 3 Steptoe MTd92    26.7     78   165       15  74.5   75.5    13.4  5.90
+ 4 Steptoe ID91     26.2     74   179       NA  74.1  111      12.1  8.63
+ 5 Steptoe OR91     19.6     62   191       NA  71.5   90      11.7  5.34
+ 6 Steptoe WA91     23.6     54   181       NA  73.8  112      10    6.27
+ 7 Steptoe MTi91    21       62   181       NA  70.8   98      12    4.10
+ 8 Steptoe MTd91    NA       NA   181       NA  NA     82      NA    7.07
+ 9 Steptoe NY92     NA       NA   176        0  NA     77.5    NA    6.05
+10 Steptoe ON92     NA       NA   198       50  NA     95      NA    3.70
+# ℹ 2,422 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [2,432 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ gen    : chr [1:2432] "Steptoe" "Steptoe" "Steptoe" "Steptoe" ...
+ $ env    : chr [1:2432] "MN92" "MTi92" "MTd92" "ID91" ...
+ $ amylase: num [1:2432] 22.7 30.1 26.7 26.2 19.6 23.6 21 NA NA NA ...
+ $ diapow : num [1:2432] 46 72 78 74 62 54 62 NA NA NA ...
+ $ hddate : num [1:2432] 150 178 165 179 191 ...
+ $ lodging: num [1:2432] NA 10 15 NA NA NA NA NA 0 50 ...
+ $ malt   : num [1:2432] 73.6 76.5 74.5 74.1 71.5 73.8 70.8 NA NA NA ...
+ $ height : num [1:2432] 84.5 NA 75.5 111 90 112 98 82 77.5 95 ...
+ $ protein: num [1:2432] 10.5 11.2 13.4 12.1 11.7 10 12 NA NA NA ...
+ $ yield  : num [1:2432] 5.53 8.64 5.9 8.63 5.34 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   gen = col_character(),
+  ..   env = col_character(),
+  ..   amylase = col_double(),
+  ..   diapow = col_double(),
+  ..   hddate = col_double(),
+  ..   lodging = col_double(),
+  ..   malt = col_double(),
+  ..   height = col_double(),
+  ..   protein = col_double(),
+  ..   yield = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<p>This shows us the structure and different data types in our dataset</p>
+<p>Let’s look at the summary of the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     gen                env               amylase          diapow      
+ Length:2432        Length:2432        Min.   :14.90   Min.   : 35.00  
+ Class :character   Class :character   1st Qu.:25.62   1st Qu.: 70.00  
+ Mode  :character   Mode  :character   Median :28.50   Median : 84.00  
+                                       Mean   :29.04   Mean   : 87.25  
+                                       3rd Qu.:32.00   3rd Qu.:101.00  
+                                       Max.   :49.30   Max.   :229.00  
+                                       NA's   :1066    NA's   :1066    
+     hddate         lodging            malt           height      
+ Min.   :143.0   Min.   :  0.00   Min.   :69.00   Min.   : 34.00  
+ 1st Qu.:174.5   1st Qu.: 15.00   1st Qu.:73.30   1st Qu.: 82.50  
+ Median :183.5   Median : 35.00   Median :74.50   Median : 95.00  
+ Mean   :181.2   Mean   : 37.13   Mean   :74.72   Mean   : 94.95  
+ 3rd Qu.:191.0   3rd Qu.: 55.00   3rd Qu.:75.90   3rd Qu.:109.00  
+ Max.   :217.0   Max.   :100.00   Max.   :83.00   Max.   :151.00  
+                 NA's   :1521     NA's   :1067    NA's   :5       
+    protein          yield       
+ Min.   : 8.00   Min.   : 1.390  
+ 1st Qu.:11.90   1st Qu.: 4.092  
+ Median :13.00   Median : 5.272  
+ Mean   :12.92   Mean   : 5.293  
+ 3rd Qu.:14.00   3rd Qu.: 6.338  
+ Max.   :17.50   Max.   :11.526  
+ NA's   :1067                    </code></pre>
+</div>
+</div>
+<p>We have data from 17 environments</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(dat<span class="sc">$</span>env)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<p>Let’s consider only the env <strong>ID91</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>dat.ID91 <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span>   <span class="fu">filter</span>(env<span class="sc">==</span><span class="st">"ID91"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We take a look at the summary of the data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dat.ID91)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     gen                env               amylase          diapow      
+ Length:152         Length:152         Min.   :19.10   Min.   : 47.00  
+ Class :character   Class :character   1st Qu.:25.48   1st Qu.: 72.00  
+ Mode  :character   Mode  :character   Median :28.05   Median : 83.00  
+                                       Mean   :28.08   Mean   : 84.16  
+                                       3rd Qu.:30.12   3rd Qu.: 94.00  
+                                       Max.   :40.10   Max.   :144.00  
+                                                                       
+     hddate         lodging         malt           height         protein     
+ Min.   :173.0   Min.   : NA   Min.   :71.10   Min.   : 92.7   Min.   :11.30  
+ 1st Qu.:178.0   1st Qu.: NA   1st Qu.:73.40   1st Qu.:108.9   1st Qu.:12.90  
+ Median :180.5   Median : NA   Median :74.40   Median :114.3   Median :13.50  
+ Mean   :180.5   Mean   :NaN   Mean   :74.36   Mean   :114.0   Mean   :13.57  
+ 3rd Qu.:183.0   3rd Qu.: NA   3rd Qu.:75.20   3rd Qu.:119.4   3rd Qu.:14.22  
+ Max.   :188.0   Max.   : NA   Max.   :78.50   Max.   :137.2   Max.   :16.00  
+                 NA's   :152                                                  
+     yield       
+ Min.   : 4.048  
+ 1st Qu.: 6.681  
+ Median : 7.684  
+ Mean   : 7.500  
+ 3rd Qu.: 8.382  
+ Max.   :10.315  
+                 </code></pre>
+</div>
+</div>
+<p><code>lodging</code> is missing for all genotypes in this environment. So we exclude <code>lodging</code> in the dataset</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>dat.ID91 <span class="ot">&lt;-</span> dat.ID91 <span class="sc">%&gt;%</span>   </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>lodging) </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dat.ID91)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "gen"     "env"     "amylase" "diapow"  "hddate"  "malt"    "height" 
+[8] "protein" "yield"  </code></pre>
+</div>
+</div>
+<p>No more missing data, but it’s a good practice to use the function <code>na.omit()</code> and exclude any missing data the dataset may have</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>dat.ID91 <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(dat.ID91)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s store the names of the genotypes in a vector <code>dat.ID91.label</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>dat.ID91.label <span class="ot">&lt;-</span> dat.ID91<span class="sc">$</span>gen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We delete the gen and env columns from the dataset to only keep the quantitative variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>dat.ID91<span class="sc">$</span>gen <span class="ot">&lt;-</span> <span class="cn">NULL</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>dat.ID91<span class="sc">$</span>env <span class="ot">&lt;-</span> <span class="cn">NULL</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>dat.ID91</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 152 × 7
+   amylase diapow hddate  malt height protein yield
+     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+ 1    26.2     74   179   74.1   111     12.1  8.63
+ 2    36.2     97   180   76.7   116     14.8  7.95
+ 3    32.8     83   183   74.4   117.    14.3  6.10
+ 4    24.9     81   178.  72.3   113     14    7.20
+ 5    30.2     69   180   72.9   117.    13.8  6.01
+ 6    30.3     99   184.  73.2   119.    14.9  8.09
+ 7    33.4     63   178   73.5   104.    13.1  7.98
+ 8    25.5     74   186.  71.8   130.    14.6  5.93
+ 9    26.8     78   185   75     124.    12.8  8.72
+10    28.3     85   179   71.3   119.    14.1  6.48
+# ℹ 142 more rows</code></pre>
+</div>
+</div>
+<p>The data have different units. We standardize them using the function <code>scale()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>dat.ID91.sc <span class="ot">&lt;-</span> <span class="fu">scale</span>(dat.ID91) </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dat.ID91.sc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    amylase              diapow             hddate              malt         
+ Min.   :-2.323173   Min.   :-2.13347   Min.   :-2.13124   Min.   :-2.39465  
+ 1st Qu.:-0.674579   1st Qu.:-0.69806   1st Qu.:-0.71724   1st Qu.:-0.70544  
+ Median :-0.008677   Median :-0.06648   Median :-0.01023   Median : 0.02899  
+ Mean   : 0.000000   Mean   : 0.00000   Mean   : 0.00000   Mean   : 0.00000  
+ 3rd Qu.: 0.527924   3rd Qu.: 0.56510   3rd Qu.: 0.69677   3rd Qu.: 0.61654  
+ Max.   : 3.107488   Max.   : 3.43592   Max.   : 2.11078   Max.   : 3.04018  
+     height            protein             yield        
+ Min.   :-2.38931   Min.   :-2.44921   Min.   :-2.7274  
+ 1st Qu.:-0.57607   1st Qu.:-0.72269   1st Qu.:-0.6471  
+ Median : 0.02835   Median :-0.07525   Median : 0.1461  
+ Mean   : 0.00000   Mean   : 0.00000   Mean   : 0.0000  
+ 3rd Qu.: 0.59919   3rd Qu.: 0.70708   3rd Qu.: 0.6974  
+ Max.   : 2.59152   Max.   : 2.62243   Max.   : 2.2246  </code></pre>
+</div>
+</div>
+<p>The distance metric is calculated using the Euclidean distance</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>dist.ID91 <span class="ot">&lt;-</span> <span class="fu">dist</span>(dat.ID91.sc, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We perform the hierarchical classification with the <code>hclust ()</code> function and specify the method</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='large'</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>hclust.ID91 <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist.ID91, <span class="at">method =</span> <span class="st">'ward.D2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can visualize the dendrogram using the <code>plot()</code> function</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='large'</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hclust.ID91, <span class="at">hang =</span> <span class="sc">-</span><span class="dv">1</span>,<span class="at">rect=</span> <span class="cn">TRUE</span>, <span class="at">cex =</span> <span class="fl">0.5</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in graphics:::plotHclust(n1, merge, height, order(x$order), hang, :
+"rect" is not a graphical parameter
+Warning in graphics:::plotHclust(n1, merge, height, order(x$order), hang, :
+"rect" is not a graphical parameter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in axis(2, at = pretty(range(height)), ...): "rect" is not a graphical
+parameter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...): "rect"
+is not a graphical parameter</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can visualize the three clusters with different colors by using the <code>color_branches ()</code> function of the <code>dendextend</code> package</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dendextend) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+---------------------
+Welcome to dendextend version 1.17.1
+Type citation('dendextend') for how to cite the package.
+
+Type browseVignettes(package = 'dendextend') for the package vignette.
+The github page is: https://github.com/talgalili/dendextend/
+
+Suggestions and bug-reports can be submitted at: https://github.com/talgalili/dendextend/issues
+You may ask questions at stackoverflow, use the r and dendextend tags: 
+     https://stackoverflow.com/questions/tagged/dendextend
+
+    To suppress this message use:  suppressPackageStartupMessages(library(dendextend))
+---------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dendextend'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    cutree</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dend.ID91 <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(hclust.ID91) </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>col.dend.ID91 <span class="ot">&lt;-</span> <span class="fu">color_branches</span>(dend.ID91, <span class="at">k =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(col.dend.ID91, <span class="at">hang =</span> <span class="dv">1</span>, <span class="at">cex =</span> <span class="fl">0.4</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in plot.window(...): "hang" is not a graphical parameter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in plot.xy(xy, type, ...): "hang" is not a graphical parameter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in axis(side = side, at = at, labels = labels, ...): "hang" is not a
+graphical parameter
+Warning in axis(side = side, at = at, labels = labels, ...): "hang" is not a
+graphical parameter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in title(...): "hang" is not a graphical parameter</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can get the groups to which the genotypes belong by specifying the number of clusters</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>cut.ID91 <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hclust.ID91, <span class="at">k =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We add the group names of the genotypes to the original data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>dat.ID91 <span class="ot">&lt;-</span> dat.ID91 <span class="sc">%&gt;%</span>  </span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cluster =</span> cut.ID91)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>dat.ID91</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 152 × 8
+   amylase diapow hddate  malt height protein yield cluster
+     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;int&gt;
+ 1    26.2     74   179   74.1   111     12.1  8.63       1
+ 2    36.2     97   180   76.7   116     14.8  7.95       2
+ 3    32.8     83   183   74.4   117.    14.3  6.10       1
+ 4    24.9     81   178.  72.3   113     14    7.20       1
+ 5    30.2     69   180   72.9   117.    13.8  6.01       1
+ 6    30.3     99   184.  73.2   119.    14.9  8.09       3
+ 7    33.4     63   178   73.5   104.    13.1  7.98       1
+ 8    25.5     74   186.  71.8   130.    14.6  5.93       3
+ 9    26.8     78   185   75     124.    12.8  8.72       3
+10    28.3     85   179   71.3   119.    14.1  6.48       1
+# ℹ 142 more rows</code></pre>
+</div>
+</div>
+<p>We can aggregate the data based on groups</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>dat.ID91.summary <span class="ot">&lt;-</span> dat.ID91 <span class="sc">%&gt;%</span>  </span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span>   <span class="fu">summarize</span>(     <span class="at">amylase=</span><span class="fu">mean</span>(amylase, <span class="at">na.rm=</span><span class="cn">TRUE</span>),     <span class="at">diapow=</span><span class="fu">mean</span>(diapow, <span class="at">na.rm=</span><span class="cn">TRUE</span>),     <span class="at">hddate=</span><span class="fu">mean</span>(hddate, <span class="at">na.rm=</span><span class="cn">TRUE</span>),     <span class="at">malt=</span><span class="fu">mean</span>(malt, <span class="at">na.rm=</span><span class="cn">TRUE</span>),     <span class="at">height=</span><span class="fu">mean</span>(height, <span class="at">na.rm=</span><span class="cn">TRUE</span>),     <span class="at">protein=</span><span class="fu">mean</span>(protein, <span class="at">na.rm=</span><span class="cn">TRUE</span>),     <span class="at">yield=</span><span class="fu">mean</span>(yield, <span class="at">na.rm=</span><span class="cn">TRUE</span>),     <span class="at">Nobs=</span><span class="fu">n</span>()   ) </span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>dat.ID91.summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 9
+  cluster amylase diapow hddate  malt height protein yield  Nobs
+    &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+1       1    26.6   75.7   179.  74.0   110.    13.3  7.71    86
+2       2    33.9  110.    179.  74.6   115.    14.8  6.24    17
+3       3    28.6   89.9   184.  74.9   121.    13.5  7.56    49</code></pre>
+</div>
+</div>
+<p>The table above shows the summary of mean of each variable based on the cluster. This example illustrates how clustering into groups can be done in R.</p>
+</section>
+</section>
+<section id="k-means-clustering" class="level1">
+<h1><span style="color: #234F1E;"><strong>K-Means Clustering</strong></span></h1>
+<p>Data clustering techniques serve as descriptive tools for analyzing multivariate datasets and revealing underlying structures within the data. They prove particularly beneficial when traditional second-order statistical methods, such as sample mean and covariance, are not applicable. In exploratory data analysis, where prior knowledge about the dataset’s distribution is lacking, clustering becomes invaluable. It operates as a form of unsupervised classification, forming clusters by assessing similarities and dissimilarities among intrinsic characteristics of different cases. Groupings are based solely on these emergent similarities, independent of any external criteria.</p>
+<p>K-Means clustering offers a solution for analyzing unlabeled data, where clear categories or groups are absent. This algorithm provides a straightforward approach to organizing a dataset into a specified number of clusters. It is a simple approach for partitioning a dataset into K distinct, non-overlapping clusters. Through iterative steps, it assigns each data point to one of K groups, relying on feature similarities to cluster the data effectively. The K-Means technique stands out as the most straightforward and widely used clustering approach. It possesses the capability to efficiently group extensive datasets, accomplishing this task with rapid and effective computational speed.</p>
+<p>K-means clustering follows similar intuition to hierarchical clustering algorithms used for partitioning the multivariate data set. However, the number of <code>k</code> groups is pre-defined before analysis, hence the name k-means. It allows us to classify observations in a data set in multiple groups called clusters such that observations in the same cluster are as similar as possible <code>(i.e. high intra-class similarity)</code> and observations from other clusters are as dissimilar as possible <code>(i.e. low inter-class similarity)</code>. Each cluster is represented by its center (i.e, centroid) corresponding to the mean of the points assigned to the cluster.</p>
+<section id="k-means-clustering-steps" class="level2">
+<h2 class="anchored" data-anchor-id="k-means-clustering-steps"><span style="color: #002D62;">K-Means Clustering Steps</span></h2>
+<p>Conceptually, K-means operates in the following manner:</p>
+<ol type="1">
+<li>It randomly selects K centroids.</li>
+<li>Each data point (e.g., each yield) is assigned to the closest centroid in an n-dimensional space, where n represents the number of features used in clustering (e.g., features such as water, protein, oil, and height). This allocation results in each point belonging to a specific group.</li>
+<li>The centroids are recalculated as the mean point (vector) of all other points within the group.</li>
+<li>Steps 2 and 3 are iteratively repeated until either the groups stabilize, meaning no points are reassigned to another centroid, or the maximum number of iterations is reached (commonly set to 10 in default settings).</li>
+</ol>
+<p>As you increase the chosen value of K in clustering, the variance within the groups decreases. When K equals the number of observations, each point becomes its own group, resulting in a variance of 0.</p>
+<p>The function <code>kmeans()</code> in the base R stats package can be used to perform K-means clustering. It is often recommended to use the <code>set.seed()</code> function to set a seed for <code>R’s</code> random number to make the results reproducible.</p>
+<p>The basic argument of the function is as follows:</p>
+<ul>
+<li><p><code>kmeans(df, k, nstart = x)</code></p>
+<ul>
+<li><code>df</code> is the numeric data frame</li>
+<li><code>k</code> is the number of clusters</li>
+<li><code>nstart</code> =<code>x</code> is the number of random starting partitions, where <code>x&gt;1</code> is recommended to have a stable result However, a beautiful cluster visualization can be created from the clusters generated with <code>kmeans()</code> function with <code>fviz_cluster()</code> function in the <code>factoextra</code> package which can be installed using <code>install.packages("factoextra")</code>.</li>
+</ul></li>
+</ul>
+<p>The basic argument needed in the function are:</p>
+<ul>
+<li><p><code>fviz_cluster(km, df)</code></p>
+<ul>
+<li><code>km</code> is the kmeans object results</li>
+<li><code>df</code> is the original data sets</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1"><span style="color: #002D62;">Example</span></h2>
+<p>To demonstrate how these functions work, let’s consider <code>steptoe.morex.pheno.csv</code> dataset, a multi-environment trial of barley using one environment ,<code>ID91</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"steptoe.morex.pheno.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 2432 Columns: 10
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): gen, env
+dbl (8): amylase, diapow, hddate, lodging, malt, height, protein, yield
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2,432 × 10
+   gen     env   amylase diapow hddate lodging  malt height protein yield
+   &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+ 1 Steptoe MN92     22.7     46   150.      NA  73.6   84.5    10.5  5.53
+ 2 Steptoe MTi92    30.1     72   178       10  76.5   NA      11.2  8.64
+ 3 Steptoe MTd92    26.7     78   165       15  74.5   75.5    13.4  5.90
+ 4 Steptoe ID91     26.2     74   179       NA  74.1  111      12.1  8.63
+ 5 Steptoe OR91     19.6     62   191       NA  71.5   90      11.7  5.34
+ 6 Steptoe WA91     23.6     54   181       NA  73.8  112      10    6.27
+ 7 Steptoe MTi91    21       62   181       NA  70.8   98      12    4.10
+ 8 Steptoe MTd91    NA       NA   181       NA  NA     82      NA    7.07
+ 9 Steptoe NY92     NA       NA   176        0  NA     77.5    NA    6.05
+10 Steptoe ON92     NA       NA   198       50  NA     95      NA    3.70
+# ℹ 2,422 more rows</code></pre>
+</div>
+</div>
+<p>Filter the data set to include only the quantitative variables and the genotype name.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>dat.ID91 <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span>                     </span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(env<span class="sc">==</span><span class="st">"ID91"</span>) <span class="sc">%&gt;%</span>                   </span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(env, lodging)) <span class="sc">%&gt;%</span>                  </span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">"gen"</span>)</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat.ID91, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        amylase diapow hddate malt height protein yield
+Steptoe    26.2     74  179.0 74.1  111.0    12.1 8.629
+Morex      36.2     97  180.0 76.7  116.0    14.8 7.951
+SM1        32.8     83  183.0 74.4  116.8    14.3 6.095
+SM2        24.9     81  178.5 72.3  113.0    14.0 7.201</code></pre>
+</div>
+</div>
+<p><strong>To Scale and compute the Euclidean distance</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>dat.ID91.sc <span class="ot">&lt;-</span> <span class="fu">dist</span>(<span class="fu">scale</span>(dat.ID91), <span class="at">method =</span> <span class="st">"euclidean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This has scaled the dataset using the euclidean distance</p>
+<p><strong>To Compute K-means</strong> <code>(Assuming 3 clusters)</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">234</span>) </span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>k.means.ID91 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(dat.ID91.sc, <span class="dv">5</span>, <span class="at">nstart=</span><span class="dv">30</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>To Compute Cluster number for each of the observations</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co">#|include = TRUE</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(k.means.ID91<span class="sc">$</span>cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Steptoe   Morex     SM1     SM2     SM3     SM4 
+      3       5       4       3       3       4 </code></pre>
+</div>
+</div>
+<p>This shows the cluster number for each observations.</p>
+<p><strong>To Compute Cluster size</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>k.means.ID91<span class="sc">$</span>size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25 17 52 39 19</code></pre>
+</div>
+</div>
+<p><strong>To Compute Cluster means</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|results = 'hide'</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>k.means.ID91<span class="sc">$</span>centers </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Steptoe    Morex      SM1      SM2      SM3      SM4      SM5      SM6
+1 2.396687 5.004639 4.571804 3.739524 4.164901 4.743407 3.484430 5.505864
+2 4.613283 4.708417 2.887331 3.359112 2.904901 3.081409 4.701587 2.362378
+3 2.472232 4.097363 3.100510 2.267613 2.592313 3.345960 2.656369 4.175304
+4 3.056281 3.367537 2.532194 3.050635 2.950751 2.540108 3.566628 3.685265
+5 4.849363 2.845180 3.091142 4.272241 3.921943 3.405148 4.321012 5.166986
+       SM7      SM8     SM10     SM11     SM12     SM13     SM14     SM15
+1 3.377673 4.729840 5.858328 5.845756 3.093984 3.915040 4.165559 3.641892
+2 3.761834 2.932933 5.772836 3.341753 6.431597 3.533855 5.328559 4.356080
+3 3.371636 3.009288 5.297382 4.189723 4.521166 2.415629 3.095047 3.785390
+4 2.285318 3.407485 4.463236 3.507704 4.591748 2.640392 3.941457 2.575791
+5 4.716943 4.180028 4.164572 3.106612 6.612834 3.400839 3.737706 4.766804
+      SM16     SM20     SM21     SM22     SM23     SM24     SM25     SM27
+1 3.585691 3.603773 6.219806 2.687926 4.576930 4.139708 3.805060 2.886406
+2 3.448935 3.253567 3.115514 4.703059 4.027034 3.779249 4.736979 4.183666
+3 2.436016 2.252891 4.327435 2.953940 3.626814 3.292979 2.478023 2.503625
+4 2.669671 2.932926 4.366398 3.585524 2.653918 2.281647 3.853368 2.904471
+5 4.052189 4.378637 4.412515 5.484264 2.803602 3.053269 4.047591 4.512935
+      SM30     SM31     SM32     SM35     SM39     SM40     SM41     SM42
+1 3.341203 4.025472 5.804181 3.711233 4.314046 2.574429 3.958372 3.559316
+2 4.620347 3.094947 2.928820 2.871918 2.960659 5.544522 3.359294 3.901436
+3 3.214442 3.392832 4.715422 2.920308 2.737046 3.156670 2.958033 2.361854
+4 2.522279 2.109101 3.888931 2.197635 2.588492 3.898445 2.754923 2.533089
+5 3.993640 4.002475 4.836671 4.212964 3.272273 5.543254 4.400415 2.954443
+      SM43     SM44     SM45     SM46     SM48     SM50     SM54     SM55
+1 4.328402 2.799742 4.694623 5.175809 3.039891 4.373829 4.266965 3.210410
+2 2.818472 4.953306 4.690091 2.380346 5.902977 3.871267 4.384680 6.826313
+3 3.294786 3.548127 4.360445 3.733202 3.139010 2.688485 2.718687 4.593150
+4 3.259252 3.011376 3.217466 3.369213 4.266631 3.537162 3.618615 5.102594
+5 5.142157 5.149806 3.696094 4.471447 4.974133 3.590026 3.462788 6.922808
+      SM56     SM57     SM58     SM59     SM61     SM62     SM63     SM64
+1 3.746131 3.747449 5.170813 6.330523 6.129453 3.124664 3.868063 2.576326
+2 6.037486 3.210362 3.556734 5.338485 3.717112 3.643771 3.105443 4.326862
+3 4.632332 3.219003 4.383890 5.080848 4.438914 2.636916 2.322926 2.090883
+4 4.091388 2.058619 2.975361 4.479530 4.014283 2.705336 2.712943 2.675110
+5 5.705687 3.986445 3.900421 3.463434 3.096258 4.856264 3.763578 4.089438
+      SM65     SM67     SM68     SM69     SM70     SM71     SM72     SM73
+1 2.680259 2.731785 4.611551 2.593370 2.866557 3.288146 2.939807 2.565014
+2 3.995858 5.956535 2.701018 4.220158 4.149401 4.676179 5.598812 6.141595
+3 2.129468 3.606008 3.540216 2.378521 2.380725 3.442754 3.207767 3.497301
+4 2.424626 4.166062 2.385629 2.473334 3.188349 4.147845 3.968873 4.190772
+5 3.878175 5.691834 3.802861 4.322468 5.043712 6.267425 5.221343 5.580213
+      SM74     SM75     SM76     SM77     SM78     SM79     SM80     SM81
+1 2.974352 2.891878 4.180747 3.743995 3.079250 3.843694 3.943767 5.936876
+2 4.658389 4.136422 3.591138 3.279511 4.305088 5.130702 3.058291 3.150492
+3 2.633188 2.517060 3.517585 3.209317 3.044511 3.143785 2.399386 4.979184
+4 2.949996 3.024949 2.259048 1.978014 2.267641 3.818870 2.270566 4.042762
+5 4.028085 4.907337 3.573715 3.941131 3.961778 3.907669 3.093824 5.110337
+      SM82     SM83     SM84     SM85     SM87     SM88     SM89     SM91
+1 5.245064 2.697712 3.671950 3.217101 3.705077 3.970364 4.631481 3.278259
+2 4.460648 5.268359 3.372302 4.072740 2.798809 4.086020 2.476646 4.716045
+3 3.669274 2.913396 2.892717 2.578328 2.684152 2.600272 3.513264 3.429108
+4 3.597352 3.549573 2.149481 3.495687 2.039860 3.345175 2.472469 2.502008
+5 2.387619 5.081318 3.784449 5.005707 3.715558 3.850742 3.947927 4.110468
+      SM92     SM93     SM94     SM97     SM98     SM99    SM103    SM104
+1 3.826594 4.014452 3.441179 2.969140 5.412136 4.849632 3.820744 5.124762
+2 3.676797 3.538520 4.311058 4.113355 4.290556 2.220715 3.303823 2.715120
+3 2.378610 2.828257 2.367192 2.123951 3.973663 3.673818 2.601610 3.940288
+4 2.967391 3.460231 2.892230 2.817669 3.564064 2.898455 2.038549 2.662547
+5 3.611958 4.914213 3.382529 4.124261 2.664677 4.494853 3.071857 3.726521
+     SM105    SM110    SM112    SM116    SM120    SM124    SM125    SM126
+1 2.948235 2.925165 3.679401 3.534775 3.653204 5.305968 4.038345 2.955469
+2 4.177425 4.786013 4.642656 4.010544 3.263226 2.344811 3.275675 5.004850
+3 3.061578 2.572071 2.872460 2.639887 2.439244 3.730096 3.074949 3.107199
+4 2.268103 2.949404 3.741603 2.416094 2.798331 3.268174 2.831299 4.089638
+5 4.276337 4.061838 4.877317 3.457748 4.021827 4.337137 4.756618 6.005346
+     SM127    SM129    SM130    SM131    SM132    SM133    SM134    SM135
+1 6.465125 3.003101 4.640955 3.098030 4.591152 2.871702 5.381253 3.109502
+2 5.885256 5.427067 4.482591 5.253060 3.340734 5.088618 4.232544 4.398164
+3 5.380929 3.134749 3.188355 3.686494 3.753789 2.784266 4.321386 2.536647
+4 4.820273 4.255851 3.543640 3.339856 2.584685 4.122702 3.267191 2.747073
+5 3.129551 5.838884 2.703092 5.001209 4.014572 5.525444 2.720119 3.675877
+     SM136    SM137    SM139    SM140    SM141    SM142    SM143    SM144
+1 2.694613 5.185676 3.239424 2.849002 3.380047 3.552024 5.459776 3.373386
+2 4.593214 2.609539 4.911377 4.471188 4.394931 4.950179 5.026826 3.117931
+3 3.000104 3.933054 2.680430 3.175977 3.452107 4.044813 3.942597 2.792939
+4 2.809172 3.792723 3.636737 2.420272 2.367410 2.999566 4.305046 1.996600
+5 4.961074 5.243681 4.505711 4.568721 4.052924 4.642122 2.898851 4.127303
+     SM145    SM146    SM147    SM149    SM150    SM151    SM152    SM153
+1 4.332509 3.322741 4.020953 3.333693 3.206997 5.182178 4.048625 2.303564
+2 3.267985 3.175907 3.525092 5.915102 3.646024 2.703152 2.763140 5.155989
+3 3.245122 2.367345 3.363378 3.213869 2.471414 3.992624 2.569924 2.893010
+4 2.246689 2.516852 2.277741 4.094691 3.058366 3.085806 2.175991 3.357354
+5 3.523356 4.291719 3.814893 4.591378 4.912281 4.257375 3.125863 5.192849
+     SM154    SM155    SM156    SM157    SM158    SM159    SM160    SM161
+1 4.509202 2.672747 5.448283 3.450132 4.588278 2.875706 2.802902 3.119339
+2 3.851159 5.342529 3.576348 4.521674 4.323639 3.562176 4.149623 5.487960
+3 3.259915 3.027247 3.823503 2.819375 3.291105 2.205395 2.477301 3.710065
+4 2.922540 3.641573 3.240762 2.734964 3.630021 2.755942 3.085863 4.610606
+5 3.377658 4.866790 2.403132 3.788803 3.299429 4.674165 4.984653 6.686289
+     SM162    SM164    SM165    SM166    SM167    SM168    SM169    SM170
+1 2.755081 3.753454 4.258295 3.393463 2.640478 3.433762 6.109715 5.490770
+2 4.022190 3.263644 2.772031 4.188518 4.602688 3.870671 2.987348 5.029022
+3 2.207081 2.231881 2.912563 3.240574 2.571904 2.240267 4.901853 4.200985
+4 2.743424 2.940910 2.502517 3.692759 2.876159 3.188274 4.199235 3.875276
+5 4.339059 3.969481 3.915703 5.700302 4.361319 4.349172 5.562371 2.658428
+     SM171    SM172    SM173    SM174    SM176    SM177    SM179    SM180
+1 5.120731 3.314762 7.255712 3.295590 4.196696 4.183756 2.554746 3.690483
+2 3.938358 3.495428 4.448035 3.568807 4.136658 3.552283 4.378937 4.877201
+3 3.559662 2.756151 5.688933 3.052359 2.522772 2.431226 2.659036 2.652062
+4 3.245616 2.463715 4.767321 2.319259 3.707437 2.992329 2.733930 3.614644
+5 2.806904 4.522220 3.765605 4.434684 3.857640 3.263724 4.789590 3.760928
+     SM181    SM182    SM183    SM184    SM185    SM186    SM187    SM188
+1 2.636574 4.722798 4.150572 4.372638 5.031470 3.324758 4.960900 3.147702
+2 5.092511 3.031655 5.384845 4.455293 5.149013 3.752696 4.643482 3.803947
+3 2.891897 3.859840 3.094557 3.050965 3.508070 2.418554 3.545145 2.044142
+4 3.502989 2.812919 4.132580 4.226019 4.684261 2.109699 3.766593 2.791639
+5 4.990387 4.354504 4.114194 4.864945 4.447002 3.331631 2.710339 3.862386
+     SM189    SM193    SM194    SM196    SM197    SM198    SM199    SM200
+1 2.753970 3.531382 3.872170 6.567699 2.768062 5.441438 3.182296 3.482618
+2 4.814751 3.494119 3.567584 3.034679 4.793369 3.080450 3.747422 3.888391
+3 3.502063 2.490469 3.365734 4.857583 2.436951 4.116617 2.548198 2.132005
+4 2.867611 3.189412 2.613438 4.231959 3.274317 3.646322 2.464380 3.009706
+5 5.083762 4.913707 4.719238 4.236381 4.489983 4.457939 3.847091 3.820291</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|results = 'hide</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) </span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>clustering <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(dat.ID91.sc, <span class="at">centers =</span> <span class="dv">2</span>, <span class="at">nstart =</span> <span class="dv">10</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using 3 group ( k = 3) we had 41.4% of well-grouped data.</p>
+<p>Lets increase the value of k to 4 and compare the results.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|results = 'hide'</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) </span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>clustering <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(dat.ID91.sc, <span class="at">centers =</span> <span class="dv">4</span>, <span class="at">nstart =</span> <span class="dv">10</span>) </span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>clustering  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>K-means clustering with 4 clusters of sizes 31, 54, 25, 42
+
+Cluster means:
+   Steptoe    Morex      SM1      SM2      SM3      SM4      SM5      SM6
+1 4.862257 3.641589 3.058106 4.016133 3.599531 3.367044 4.576156 4.087150
+2 2.485849 4.098854 3.083015 2.266269 2.570197 3.335177 2.668772 4.143384
+3 2.396687 5.004639 4.571804 3.739524 4.164901 4.743407 3.484430 5.505864
+4 3.174975 3.435023 2.536055 3.054512 2.938184 2.515667 3.649556 3.541188
+       SM7      SM8     SM10     SM11     SM12     SM13     SM14     SM15
+1 4.445262 3.784596 4.784184 3.169714 6.659612 3.558766 4.419209 4.696990
+2 3.364790 2.960025 5.301235 4.173295 4.537585 2.425007 3.126527 3.785469
+3 3.377673 4.729840 5.858328 5.845756 3.093984 3.915040 4.165559 3.641892
+4 2.345804 3.368844 4.576637 3.497200 4.706720 2.666841 4.057934 2.664208
+      SM16     SM20     SM21     SM22     SM23     SM24     SM25     SM27
+1 3.879416 4.040838 3.875322 5.287676 3.337308 3.379272 4.403429 4.506773
+2 2.438731 2.254445 4.302118 2.965898 3.622727 3.288235 2.501179 2.513688
+3 3.585691 3.603773 6.219806 2.687926 4.576930 4.139708 3.805060 2.886406
+4 2.725240 2.929361 4.277818 3.655164 2.731937 2.384675 3.928605 2.973377
+      SM30     SM31     SM32     SM35     SM39     SM40     SM41     SM42
+1 4.344182 3.755449 4.031684 3.807821 3.239242 5.645107 4.122088 3.402232
+2 3.232330 3.382077 4.677315 2.903975 2.725413 3.179367 2.955079 2.361281
+3 3.341203 4.025472 5.804181 3.711233 4.314046 2.574429 3.958372 3.559316
+4 2.636416 2.102198 3.833326 2.180371 2.576027 4.025731 2.728967 2.644936
+      SM43     SM44     SM45     SM46     SM48     SM50     SM54     SM55
+1 4.354340 5.165840 4.147477 3.667285 5.441025 3.725041 3.913090 7.005582
+2 3.283289 3.563193 4.345887 3.692274 3.174172 2.687114 2.727138 4.621963
+3 4.328402 2.799742 4.694623 5.175809 3.039891 4.373829 4.266965 3.210410
+4 3.137442 3.129650 3.307903 3.282870 4.390696 3.599814 3.672833 5.206347
+      SM56     SM57     SM58     SM59     SM61     SM62     SM63     SM64
+1 5.912280 3.760076 3.843889 4.225958 3.332953 4.473043 3.591134 4.301764
+2 4.651657 3.203956 4.364669 5.082127 4.412119 2.650307 2.318965 2.114576
+3 3.746131 3.747449 5.170813 6.330523 6.129453 3.124664 3.868063 2.576326
+4 4.214775 2.105164 2.945742 4.524421 3.995819 2.739521 2.722577 2.780224
+      SM65     SM67     SM68     SM69     SM70     SM71     SM72     SM73
+1 4.012221 5.921221 3.400764 4.400145 4.815621 5.749247 5.475715 5.907708
+2 2.132519 3.631948 3.521054 2.403154 2.401759 3.451180 3.241274 3.530907
+3 2.680259 2.731785 4.611551 2.593370 2.866557 3.288146 2.939807 2.565014
+4 2.556495 4.278849 2.374805 2.567569 3.227010 4.161308 4.076174 4.331500
+      SM74     SM75     SM76     SM77     SM78     SM79     SM80     SM81
+1 4.348545 4.685566 3.633602 3.774011 4.172923 4.453238 3.166166 4.303431
+2 2.656062 2.535688 3.504208 3.199485 3.044880 3.150355 2.388919 4.943567
+3 2.974352 2.891878 4.180747 3.743995 3.079250 3.843694 3.943767 5.936876
+4 3.082609 3.100929 2.335674 2.021279 2.414969 3.945497 2.308118 3.973359
+      SM82     SM83     SM84     SM85     SM87     SM88     SM89     SM91
+1 3.234819 5.258774 3.685794 4.708435 3.433765 3.996833 3.427846 4.431890
+2 3.666931 2.946338 2.890384 2.578270 2.668591 2.603573 3.490649 3.437943
+3 5.245064 2.697712 3.671950 3.217101 3.705077 3.970364 4.631481 3.278259
+4 3.666693 3.664592 2.217723 3.560995 2.065600 3.423992 2.415985 2.645860
+      SM92     SM93     SM94     SM97     SM98     SM99    SM103    SM104
+1 3.695705 4.482914 3.845477 4.222069 3.344950 3.634662 3.234026 3.438167
+2 2.392259 2.817955 2.388863 2.137565 3.974740 3.644443 2.597481 3.919323
+3 3.826594 4.014452 3.441179 2.969140 5.412136 4.849632 3.820744 5.124762
+4 3.019045 3.438176 2.981872 2.912140 3.592093 2.803767 2.114253 2.558777
+     SM105    SM110    SM112    SM116    SM120    SM124    SM125    SM126
+1 4.314255 4.447076 4.913735 3.738163 3.787683 3.591312 4.291204 5.721159
+2 3.060625 2.588415 2.901820 2.653809 2.420251 3.696904 3.073891 3.133958
+3 2.948235 2.925165 3.679401 3.534775 3.653204 5.305968 4.038345 2.955469
+4 2.402598 3.087568 3.758584 2.528321 2.851272 3.160182 2.794352 4.134872
+     SM127    SM129    SM130    SM131    SM132    SM133    SM134    SM135
+1 4.222097 5.790868 3.429215 5.170272 3.787778 5.448626 3.346556 4.033143
+2 5.377097 3.169405 3.184281 3.688213 3.737928 2.805372 4.304699 2.536319
+3 6.465125 3.003101 4.640955 3.098030 4.591152 2.871702 5.381253 3.109502
+4 4.906227 4.321888 3.650056 3.496075 2.614282 4.206182 3.323120 2.896745
+     SM136    SM137    SM139    SM140    SM141    SM142    SM143    SM144
+1 4.908612 4.198936 4.748536 4.643110 4.272569 4.832359 3.744466 3.815895
+2 3.017285 3.904552 2.701771 3.184490 3.452793 4.041790 3.941105 2.784386
+3 2.694613 5.185676 3.239424 2.849002 3.380047 3.552024 5.459776 3.373386
+4 2.923996 3.700341 3.743257 2.534724 2.491844 3.133497 4.393998 2.044624
+     SM145    SM146    SM147    SM149    SM150    SM151    SM152    SM153
+1 3.508677 3.932098 3.826288 5.218724 4.505598 3.618654 3.036380 5.299454
+2 3.243239 2.367279 3.361247 3.248920 2.471650 3.976932 2.552780 2.920620
+3 4.332509 3.322741 4.020953 3.333693 3.206997 5.182178 4.048625 2.303564
+4 2.261019 2.549147 2.286067 4.223450 3.094355 3.044619 2.211586 3.468874
+     SM154    SM155    SM156    SM157    SM158    SM159    SM160    SM161
+1 3.644545 5.138114 2.868427 4.155865 3.716198 4.338230 4.744274 6.316821
+2 3.243389 3.041213 3.809725 2.838223 3.274504 2.212423 2.492858 3.730530
+3 4.509202 2.672747 5.448283 3.450132 4.588278 2.875706 2.802902 3.119339
+4 2.976570 3.791027 3.262451 2.857881 3.735092 2.799343 3.160320 4.661945
+     SM162    SM164    SM165    SM166    SM167    SM168    SM169    SM170
+1 4.338682 3.745385 3.530590 5.218926 4.541468 4.247245 4.532007 3.641164
+2 2.220642 2.230796 2.911672 3.234865 2.580510 2.260701 4.867135 4.202816
+3 2.755081 3.753454 4.258295 3.393463 2.640478 3.433762 6.109715 5.490770
+4 2.813508 2.978225 2.473707 3.704015 3.021116 3.226899 4.090929 3.946722
+     SM171    SM172    SM173    SM174    SM176    SM177    SM179    SM180
+1 3.292972 4.210026 3.991241 4.200521 4.030992 3.448613 4.722028 4.258133
+2 3.559892 2.757707 5.663079 3.037538 2.530864 2.438318 2.673719 2.672059
+3 5.120731 3.314762 7.255712 3.295590 4.196696 4.183756 2.554746 3.690483
+4 3.277343 2.507671 4.747104 2.377601 3.756313 3.022572 2.846991 3.737026
+     SM181    SM182    SM183    SM184    SM185    SM186    SM187    SM188
+1 5.115168 3.989654 4.717125 4.746796 4.813428 3.590884 3.512044 3.920170
+2 2.908065 3.842565 3.124607 3.063896 3.520609 2.419324 3.543039 2.042898
+3 2.636574 4.722798 4.150572 4.372638 5.031470 3.324758 4.960900 3.147702
+4 3.637610 2.702652 4.210475 4.262804 4.709593 2.218548 3.844829 2.889999
+     SM189    SM193    SM194    SM196    SM197    SM198    SM199    SM200
+1 5.076432 4.472432 4.377695 3.712486 4.727070 3.860863 3.875323 3.962574
+2 3.510537 2.493269 3.373699 4.833120 2.470710 4.097068 2.516012 2.141162
+3 2.753970 3.531382 3.872170 6.567699 2.768062 5.441438 3.182296 3.482618
+4 2.986855 3.175477 2.604009 4.134427 3.363315 3.628827 2.605199 3.058773
+
+Clustering vector:
+Steptoe   Morex     SM1     SM2     SM3     SM4     SM5     SM6     SM7     SM8 
+      2       1       4       2       2       4       2       1       4       2 
+   SM10    SM11    SM12    SM13    SM14    SM15    SM16    SM20    SM21    SM22 
+      1       1       3       2       2       4       2       2       1       3 
+   SM23    SM24    SM25    SM27    SM30    SM31    SM32    SM35    SM39    SM40 
+      4       4       2       2       4       4       1       4       4       3 
+   SM41    SM42    SM43    SM44    SM45    SM46    SM48    SM50    SM54    SM55 
+      4       2       4       3       1       1       3       2       2       3 
+   SM56    SM57    SM58    SM59    SM61    SM62    SM63    SM64    SM65    SM67 
+      3       4       1       1       1       2       2       2       2       3 
+   SM68    SM69    SM70    SM71    SM72    SM73    SM74    SM75    SM76    SM77 
+      4       2       2       3       3       3       2       2       4       4 
+   SM78    SM79    SM80    SM81    SM82    SM83    SM84    SM85    SM87    SM88 
+      4       2       4       1       1       3       4       2       4       2 
+   SM89    SM91    SM92    SM93    SM94    SM97    SM98    SM99   SM103   SM104 
+      4       4       2       2       2       2       1       4       4       4 
+  SM105   SM110   SM112   SM116   SM120   SM124   SM125   SM126   SM127   SM129 
+      4       2       2       4       2       1       4       3       1       3 
+  SM130   SM131   SM132   SM133   SM134   SM135   SM136   SM137   SM139   SM140 
+      1       3       4       3       1       2       3       1       2       4 
+  SM141   SM142   SM143   SM144   SM145   SM146   SM147   SM149   SM150   SM151 
+      4       3       1       4       4       2       4       3       2       1 
+  SM152   SM153   SM154   SM155   SM156   SM157   SM158   SM159   SM160   SM161 
+      4       3       4       3       1       2       1       2       2       3 
+  SM162   SM164   SM165   SM166   SM167   SM168   SM169   SM170   SM171   SM172 
+      2       2       4       3       2       2       1       1       1       4 
+  SM173   SM174   SM176   SM177   SM179   SM180   SM181   SM182   SM183   SM184 
+      1       4       2       2       2       2       3       4       2       2 
+  SM185   SM186   SM187   SM188   SM189   SM193   SM194   SM196   SM197   SM198 
+      1       4       1       2       3       2       4       1       2       1 
+  SM199   SM200 
+      2       2 
+
+Within cluster sum of squares by cluster:
+[1] 3988.638 3755.050 2224.519 2803.605
+ (between_SS / total_SS =  48.4 %)
+
+Available components:
+
+[1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
+[6] "betweenss"    "size"         "iter"         "ifault"      </code></pre>
+</div>
+</div>
+<p>With an increase in groups (k = 4), the value of well grouped data increases to 48.4%, which is a better value than the previous. This indicates that the bigger the value of K, the better the grouping gets.</p>
+</section>
+<section id="k-means-clustering-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="k-means-clustering-visualization"><span style="color: #002D62;">K-Means Clustering Visualization</span></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(k.means.ID91, <span class="at">data =</span> dat.ID91.sc,              <span class="at">ellipse.type =</span> <span class="st">"euclid"</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>,              <span class="at">labelsize =</span> <span class="dv">8</span>, <span class="at">star.plot=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The objective of clustering analysis is to uncover patterns within the dataset. As illustrated in the plot, observations within a group typically share similar characteristics.</p>
+</section>
+</section>
+<section id="principal-component-analysis-pca" class="level1">
+<h1><span style="color: #234F1E;"><strong>Principal Component Analysis (PCA)</strong></span></h1>
+<p>Principal Component Analysis (PCA), is a statistical technique aimed at revealing the covariance structure within a set of variables. It facilitates the identification of the primary directions along which the data exhibits variation.</p>
+<p>Principal component analysis (PCA) is a useful technique for exploratory data analysis, allowing to better visualize the variation present in a data set with many variables. It is particularly useful in the case of large data sets, where there are many variables; difficult to represent all the data in their raw format, which makes it difficult to understand the trends present inside. PCA allows us to see the general <code>shape</code> of a data, identifying which observations are similar. This can allow us to identify groups of similar observations and determine which variables make one group different from another</p>
+<p>The basics of PCA:</p>
+<ul>
+<li>take a dataset with many variables</li>
+<li>reduce the number of variables to a smaller number of <code>principal components</code></li>
+<li>visualize the correlations between the variables</li>
+<li>visualize the similarities between observations (individuals)</li>
+</ul>
+<p>The principal components are the <code>directions</code> where there is the most variance, the directions where the data is the most distributed. This means that we are trying to find the straight line that best distributes the data as it is projected along it. The first main component is the straight line which shows the largest variation in the data</p>
+<p>PCA is a type of linear transformation that adapts a dataset to a new coordinate system such that the most significant variance is on the first coordinate, and each subsequent coordinate is orthogonal to the last and has a variance lesser. In this way, we transform a set of <code>x</code> correlated variables on <code>y</code> observations into a set of <code>p</code> uncorrelated principal components on the same observations. When many variables are correlated, they will all contribute strongly to the same principal component. Each principal component summarizes a certain percentage of the total variation in the data set. When the initial variables are highly correlated with each other, you will be able to approach most of the complexity of your dataset with just a few main components.</p>
+<p>Principal Component Analysis (PCA) is a widely used statistical technique for dimensionality reduction and data visualization. It aims to simplify complex datasets by transforming them into a new coordinate system, where the variables are uncorrelated, and the first few dimensions (principal components) capture the maximum variance in the data.</p>
+<section id="heres-how-pca-typically-works" class="level2">
+<h2 class="anchored" data-anchor-id="heres-how-pca-typically-works"><span style="color: #002D62;">Here’s how PCA typically works</span></h2>
+<ol type="1">
+<li><p><strong>Standardization</strong>: If the variables in the dataset are measured on different scales, PCA often starts with standardizing the data to have a mean of 0 and a standard deviation of 1.</p></li>
+<li><p><strong>Covariance Matrix</strong>: PCA calculates the covariance matrix of the standardized data. This matrix summarizes the relationships between pairs of variables, indicating how much they vary together.</p></li>
+<li><p><strong>Eigenvalue Decomposition</strong>: PCA then decomposes the covariance matrix into its eigenvectors and eigenvalues. The eigenvectors represent the directions of maximum variance in the data, and the corresponding eigenvalues indicate the magnitude of variance along those directions.</p></li>
+<li><p><strong>Selecting Principal Components</strong>: The eigenvectors are ranked based on their corresponding eigenvalues, with the first eigenvector capturing the most variance, the second capturing the second most variance, and so on. Typically, only a subset of the top-ranked eigenvectors, called principal components, are retained, thereby reducing the dimensionality of the dataset.</p></li>
+<li><p><strong>Dimensionality Reduction</strong>: By projecting the original data onto the selected principal components, PCA creates a lower-dimensional representation of the dataset while preserving as much of the variance as possible. This reduced representation can often capture the essential patterns and structures in the data.</p></li>
+</ol>
+</section>
+<section id="application-of-pca" class="level2">
+<h2 class="anchored" data-anchor-id="application-of-pca"><span style="color: #002D62;">Application of PCA</span></h2>
+<ul>
+<li><p><strong>Dimensionality Reduction</strong>: PCA can reduce the number of variables in a dataset while retaining most of the variance, making it easier to analyze and visualize high-dimensional data.</p></li>
+<li><p><strong>Data Visualization</strong>: PCA can be used to visualize high-dimensional data in lower dimensions (e.g., 2D or 3D), allowing for easier interpretation and exploration of data patterns.</p></li>
+<li><p><strong>Feature Extraction</strong>: PCA can extract new features (principal components) that are linear combinations of the original variables. These new features may capture important underlying patterns in the data.</p></li>
+</ul>
+<p>Overall, PCA is a versatile tool widely used in various fields such as statistics, machine learning, finance, image processing, and genetics for data preprocessing, visualization, and feature extraction.</p>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2"><span style="color: #002D62;">Example</span></h2>
+<p>Let’s consider the <code>australia.soybean.csv</code>, a multi-environment trial of 58 varieties of soybeans, in 4 locations across 2 years in Australia. The description of the data are:</p>
+<ul>
+<li><strong>env</strong> (environment), 8 levels,</li>
+<li><strong>loc</strong> (location)</li>
+<li><strong>year</strong></li>
+<li><strong>gen</strong> (genotype) of soybeans,</li>
+<li><strong>yield</strong>, metric tons/hectare</li>
+<li><strong>height</strong>, in meters</li>
+<li><strong>lodging</strong>, number of plants</li>
+<li><strong>size seed</strong>, in millimetres</li>
+<li><strong>protein</strong>, percentage</li>
+<li><strong>oil</strong>, percentage</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"australia.soybean.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 464 Columns: 10
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): env, loc, gen
+dbl (7): year, yield, height, lodging, size, protein, oil
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>To study the relationship between two variables, say <code>yield</code> and <code>oil</code>, we can use + Pearson correlation coefficient + Simple linear regression</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|#|eval=TRUE</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co">#|echo = FALSE</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat) <span class="sc">+</span>   </span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> oil, <span class="at">y =</span> yield) <span class="sc">+</span>   </span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>   </span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img src="images/pca-oil-yield.png" class="img-fluid"> The diagram above indicates a positive linear relationship between yield and oil content of soybeans.</p>
+<p>Lets consider one location <code>Brookstead</code> in the <code>australia.soybean</code> data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="co">#|message = FALSE</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>dat.Brookstead <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span>   </span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(loc<span class="sc">==</span><span class="st">"Brookstead"</span>) </span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dat.Brookstead)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [116 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ env    : chr [1:116] "B70" "B70" "B70" "B70" ...
+ $ loc    : chr [1:116] "Brookstead" "Brookstead" "Brookstead" "Brookstead" ...
+ $ year   : num [1:116] 1970 1970 1970 1970 1970 1970 1970 1970 1970 1970 ...
+ $ gen    : chr [1:116] "G01" "G02" "G03" "G04" ...
+ $ yield  : num [1:116] 1.253 1.167 0.468 1.445 1.338 ...
+ $ height : num [1:116] 1.01 1.13 1.16 1.24 1.12 ...
+ $ lodging: num [1:116] 3.25 2.75 2.25 1.5 2 2.25 2 2.25 1.75 2 ...
+ $ size   : num [1:116] 8.85 8.9 10.8 10.6 11.95 ...
+ $ protein: num [1:116] 39.5 38.6 37.8 38.7 37.8 ...
+ $ oil    : num [1:116] 18.9 19.8 20.4 20.4 20.8 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   env = col_character(),
+  ..   loc = col_character(),
+  ..   year = col_double(),
+  ..   gen = col_character(),
+  ..   yield = col_double(),
+  ..   height = col_double(),
+  ..   lodging = col_double(),
+  ..   size = col_double(),
+  ..   protein = col_double(),
+  ..   oil = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<p>We store the names of the genotypes in a vector</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>labels.gen <span class="ot">&lt;-</span> dat.Brookstead<span class="sc">$</span>gen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And only consider the quantitative variables</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>dat.Brookstead <span class="ot">&lt;-</span> dat.Brookstead <span class="sc">%&gt;%</span>  </span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(env, loc, year, gen))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We run the PCA using the prcomp function</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=TRUE</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>dat.Brookstead.pca<span class="ot">&lt;-</span><span class="fu">prcomp</span>(dat.Brookstead, <span class="at">center=</span><span class="cn">TRUE</span>, <span class="at">scale=</span><span class="cn">TRUE</span>) </span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dat.Brookstead.pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Importance of components:
+                          PC1    PC2    PC3     PC4     PC5     PC6
+Standard deviation     1.8780 0.9949 0.9176 0.60462 0.42702 0.30580
+Proportion of Variance 0.5878 0.1650 0.1403 0.06093 0.03039 0.01559
+Cumulative Proportion  0.5878 0.7528 0.8931 0.95402 0.98441 1.00000</code></pre>
+</div>
+</div>
+<p>The first 2 axes explain more than 75% of the variation in the dataset. We visualize the PCA using a <code>biplot</code>. A <code>biplot</code> is a type of graph that allows us to simultaneously visualize the observations and the variables. We use the <code>ggbiplot</code> package to visualize the biplot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=FALSE</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbiplot) </span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbiplot</span>(dat.Brookstead.pca) <span class="sc">+</span>   </span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Yield and other traits of soybeans in Australia"</span>,        <span class="at">subtitle =</span> <span class="st">"Period 1970-1971"</span>,        <span class="at">caption =</span> <span class="st">"Data: agridat::australia.soybean"</span>   ) <span class="sc">+</span>  </span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img src="images/pca-biplot-1.png" class="img-fluid" style="width:65.0%"></p>
+<p>The components are seen as arrows coming from the origin. Here, all the variables contribute to PC1, with:</p>
+<ul>
+<li>higher values of <code>oil</code>, <code>size</code> and <code>yield</code> to the right on this graph and lower values to the left</li>
+<li>vice versa for <code>protein</code>, <code>lodging</code> and <code>height</code></li>
+</ul>
+<p>This allows us to see how the observations relate to the components. However, this is not very informative if we do not identify the observations. We can display the names of the genotypes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=FALSE</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbiplot) </span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbiplot</span>(dat.Brookstead.pca, <span class="at">labels=</span>labels.gen) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Yield and other traits of soybeans in Australia"</span>,        <span class="at">subtitle =</span> <span class="st">"Period 1970-1971"</span>,        <span class="at">caption =</span> <span class="st">"Data: agridat::australia.soybean"</span>   ) <span class="sc">+</span>   </span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img src="images/pca-biplot-2.png" class="img-fluid" style="width:65.0%"></p>
+<p>The diagram shows in detail the observations per each genotype.</p>
+<p>We have two years of testing, 1970 and 1971. Could be interesting to identify the genotypes by year</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|eval=FALSE</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|tidy=FALSE</span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co">#|size='tiny'</span></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbiplot) </span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="co">#ggbiplot(dat.Brookstead.pca, labels=labels.gen, groups=labels.year)+ #&lt;&lt;   </span></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#labs(title = "Yield and other traits of soybeans in Australia",        subtitle = "Period 1970-1971",        caption = "Data: agridat::australia.soybean"   ) +  </span></span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#theme_classic()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/pca-biplot-3.png" class="img-fluid" style="width:65.0%"></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
